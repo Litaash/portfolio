@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false,
+  sassOptions: {
+    additionalData: `@import "_variables.scss";`,
+ }
 }
 
 module.exports = nextConfig
