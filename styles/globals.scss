@@ -1,13 +1,39 @@
+@font-face {
+  font-family: "Digital Thin";
+  src: url('../public/assets/fonts/Digital_Thin.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Pixel Font";
+  src: url('../public/assets/fonts/Pixel_Font-7.ttf');
+  font-weight: bold;
+  font-style: normal;
+}
+
 :root {
-  --max-width: 1100px;
-  --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
+  --max-width: 100%;
+  --border-radius: 5px;
+  --font-mono: 'Digital Thin', 'Pixel Font', Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 
-  --foreground-rgb: 0, 0, 0;
+  --font-primary: 'Digital Thin';
+  --font-secondary: 'Pixel Font';
+
+  --primary-bg: 245, 245, 245;
+  --pixel-color: 40, 55, 57;
+
+  --text-shadow-lg: 3px 3px rgba(40, 55, 57, 0.7);
+  --text-shadow-md: 2px 2px rgba(40, 55, 57, 0.5);
+  --text-shadow-sm: 1px 1px rgba(40, 55, 57, 0.5);
+
+  --hover-color: rgb(44, 93, 99);
+
+  --foreground-rgb: 40, 55, 57;
   --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background-end-rgb: 245, 245, 245;
 
   --primary-glow: conic-gradient(
     from 180deg at 50% 50%,
@@ -18,8 +44,8 @@
     transparent 360deg
   );
   --secondary-glow: radial-gradient(
-    rgba(255, 255, 255, 1),
-    rgba(255, 255, 255, 0)
+    rgba(245, 245, 245, 1),
+    rgba(245, 245, 245, 0)
   );
 
   --tile-start-rgb: 239, 245, 249;
@@ -42,9 +68,18 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --foreground-rgb: 245, 245, 245;
+    --background-start-rgb: 40, 55, 57;
+    --background-end-rgb: 40, 55, 57;
+
+    --primary-bg: 40, 55, 57;
+    --pixel-color: 245, 245, 245;
+
+    --text-shadow-lg: 3px 3px rgba(245, 245, 245, 0.5);
+    --text-shadow-md: 2px 2px rgba(245, 245, 245, 0.5);
+    --text-shadow-sm: 1px 1px rgba(245, 245, 245, 0.5);
+
+    --hover-color: rgb(169, 197, 47);
 
     --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
     --secondary-glow: linear-gradient(
@@ -83,16 +118,11 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  font-size: 16px;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
 }
 
 a {

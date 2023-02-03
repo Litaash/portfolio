@@ -1,0 +1,29 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 30px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.city {
+  font-size: 1.2vw;
+  font-family: var(--font-secondary);
+  text-shadow: var(--text-shadow-sm);
+  text-transform: uppercase;
+}
+
+.postLink {
+  font-size: 1vw;
+  font-family: var(--font-secondary);
+  text-shadow: var(--text-shadow-sm);
+  letter-spacing: 1px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: var(--hover-color);
+  }
+}

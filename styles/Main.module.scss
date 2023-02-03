@@ -1,3 +1,48 @@
 .main {
-  background-color: $bg-color;
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.wrapper {
+  height: 100vh;
+}
+
+.wrapperContent {
+  padding: 30px;
+  height: 100%;
+}
+
+.wrapperContentLeft {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+.name {
+  font-size: 5vw;
+  max-width: 50%;
+  font-family: var(--font-primary);
+  text-transform: uppercase;
+  margin: 0;
+  text-shadow: var(--text-shadow-lg);
+  letter-spacing: 0.1rem;
+  margin-bottom: 30px;
+}
+
+.workPosition {
+  font-size: 2.5vw;
+  font-family: var(--font-secondary);
+  text-shadow: var(--text-shadow-md);
+  margin-bottom: 15px;
+}
+.typingText {
+  max-width: 16%;
+  font-size: 1.2vw;
+  font-family: var(--font-secondary);
+  text-shadow: var(--text-shadow-sm);
+  text-transform: uppercase;
+  line-height: 1.2vw;
 }

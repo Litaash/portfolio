@@ -1,0 +1,46 @@
+.pixel-background {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: absolute;
+  opacity: 0.2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  
+  &__wrapper {
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    overflow: hidden;
+    background: rgb(var(--primary-bg));
+
+    .pixel {
+      background: rgb(var(--pixel-color));
+      width: 15%;
+      padding-top: 15%;
+      float: left;
+      opacity: 0.0;
+      animation: blink 6s infinite;
+
+      @keyframes blink {
+        0% {
+          opacity: 0.0;
+        }
+
+        25% {
+          opacity: 0.0;
+        }
+
+        50% {
+          opacity: 0.5;
+        }
+
+        100% {
+          opacity: 0.0;
+        }
+      }
+    }
+  }
+}
