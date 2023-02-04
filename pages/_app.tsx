@@ -1,10 +1,22 @@
 import 'normalize.css/normalize.css'
 import '../styles/globals.scss'
 import '../styles/components/PixelBackground.scss'
-import type { AppProps } from 'next/app'
 import Head from 'next/head'
+import type { AppProps } from 'next/app'
+import { useRouter } from "next/router";
+import { IntlProvider } from "react-intl";
+
+import en from "../lang/en.json";
+import ua from "../lang/ua.json";
+
+const messages = {
+  en,
+  ua
+};
 
 export default function App({ Component, pageProps }: AppProps) {
+  const { locale } = useRouter();
+  
   return (
     <>
       <Head>
@@ -18,7 +30,9 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       
-      <Component {...pageProps} />
+      <IntlProvider locale="en" messages={messages[locale]}>
+        <Component {...pageProps} />
+      </IntlProvider>
     </>
   )
 }

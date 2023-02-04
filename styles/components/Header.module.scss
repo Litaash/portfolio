@@ -1,0 +1,130 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  z-index: 0;
+}
+
+.logoLink {
+  font-size: 2vw;
+  font-family: var(--font-secondary);
+  text-shadow: var(--text-shadow-md);
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--hover-color);
+  }
+}
+
+.nav {
+  margin-left: auto;
+  display: flex;
+}
+
+.link {
+  font-size: 2vw;
+  font-family: var(--font-secondary);
+  text-shadow: var(--text-shadow-md);
+  padding: 0 20px;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--hover-color);
+  }
+}
+
+.dropdown {
+  padding-left: 20px;
+  cursor: pointer;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  font-size: 2vw;
+  font-family: var(--font-secondary);
+  text-shadow: var(--text-shadow-md);
+
+  .arrow {
+    margin-left: 10px;
+  }
+
+  .dropdownLocale {
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--hover-color);
+    }
+  }
+
+  .dropdownContent {
+    display: block;
+    position: absolute;
+    width: auto;
+    background-color: rgb(var(--primary-bg));
+    top: 100%;
+    border: 1px solid rgb(var(--foreground-rgb));
+    font-size: 1.5vw;
+    transition: all 0.2s ease;
+    z-index: 1;
+
+    .dropdownLink {
+      display: block;
+      text-shadow: none;
+      padding: 3px 10px;
+    }
+    
+    &:before {
+      content: "";
+      position: absolute;
+      display: inline-block;
+      bottom: -3px;
+      right: 0;
+      height: 100%;
+      width: 3px;
+      background-color: rgb(var(--foreground-rgb));
+      transition: all 0.2s ease;
+      transform: translateX(3px);
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      display: inline-block;
+      right: -3px;
+      bottom: 0;
+      height: 3px;
+      width: 100%;
+      background-color: rgb(var(--foreground-rgb));
+      transition: all 0.2s ease;
+      transform: translateY(3px);
+    }
+
+    &:hover {
+      transform: translate(3px, 3px);
+
+      &:before {
+        transform: translateX(2px);
+        bottom: -1px;
+        opacity: 0;
+      }
+
+      &:after {
+        transform: translateY(2px);
+        right: -1px;
+        opacity: 0;
+      }
+    }
+  }
+
+  .hide {
+    display: none;
+  }
+
+  .show {
+    display: block;
+  }
+}

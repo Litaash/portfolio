@@ -17,11 +17,11 @@
 }
 
 .postLink {
-  font-size: 1vw;
+  font-size: 1.1vw;
   font-family: var(--font-secondary);
   text-shadow: var(--text-shadow-sm);
   letter-spacing: 1px;
-  transition: all 0.2s ease;
+  transition: color 0.2s ease;
 
   &:hover {
     color: var(--hover-color);
