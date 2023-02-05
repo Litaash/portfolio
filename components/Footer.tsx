@@ -1,5 +1,6 @@
-import footer from "../styles/components/Footer.module.scss";
-import { FormattedMessage } from "react-intl";
+import footer from '../styles/components/Footer.module.scss';
+import SwitcherTheme from './SwitcherTheme';
+import { FormattedMessage } from 'react-intl';
 
 export default function Footer() {
   return (
@@ -16,7 +17,7 @@ export default function Footer() {
 
         <div className={footer.right}>
           <div className={footer.switchMode}>
-            switcher dark mode
+            <SwitcherTheme />
           </div>
         </div>
       </footer>
