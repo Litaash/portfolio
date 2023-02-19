@@ -12,6 +12,7 @@
 .wrapperContent {
   padding: 30px;
   height: 100%;
+  display: flex;
 }
 
 .wrapperContentLeft {
@@ -21,6 +22,12 @@
   justify-content: center;
 }
 
+.wrapperContentRight {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
 
 .name {
   font-size: 5vw;
@@ -40,10 +47,31 @@
   margin-bottom: 15px;
 }
 .typingText {
-  max-width: 16%;
+  max-width: 30%;
   font-size: 1.2vw;
   font-family: var(--font-secondary);
   text-shadow: var(--text-shadow-sm);
   text-transform: uppercase;
   line-height: 1.2vw;
+}
+
+.contentImage {
+  width: 40vw;
+  height: 60vh;
+  margin-left: auto;
+  margin-right: auto;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: var(--ghost-image);
+  transition: all 0.2s ease;
+}
+
+.mainAnimation {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(var(--primary-bg));
 }

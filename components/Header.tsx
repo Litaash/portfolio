@@ -6,14 +6,15 @@ import { useState } from 'react';
 import OutsideClickHandler from 'react-outside-click-handler';
 
 export default function Header() {
+  const router = useRouter();
   const { locale } = useRouter();
   const [toggleDropDown, setToggleDropDown] = useState(false);
 
-  function clickHideDropdown() {
+  function handleClickHideDropdown() {
     setToggleDropDown(false);
   }
   
-  function clickShowDropdown() {
+  function handleClickShowDropdown() {
     setToggleDropDown(!toggleDropDown);
   }
 
@@ -28,24 +29,40 @@ export default function Header() {
 
         <nav className={header.nav}>
           <Link className={header.link} href="/work">
-            <FormattedMessage id="page.home.nav.work" />
+            <span className={router.pathname == "/work" ? "active" : ""}>
+              <FormattedMessage id="page.home.nav.work" />
+            </span>
           </Link>
           <Link className={header.link} href="/about">
-            <FormattedMessage id="page.home.nav.about" />
+            <span className={router.pathname == "/about" ? "active" : ""}>
+              <FormattedMessage id="page.home.nav.about" />
+            </span>
           </Link>
           <Link className={header.link} href="/contact">
-            <FormattedMessage id="page.home.nav.contact" />
+            <span className={router.pathname == "/contact" ? "active" : ""}>
+              <FormattedMessage id="page.home.nav.contact" />
+            </span>
           </Link>
-          <OutsideClickHandler onOutsideClick={clickHideDropdown}>
-            <div onClick={clickShowDropdown} className={header.dropdown}>
+          <OutsideClickHandler onOutsideClick={handleClickHideDropdown}>
+            <div onClick={handleClickShowDropdown} className={header.dropdown}>
               <span className={header.dropdownLocale}>{locale == 'en' ? 'en' : 'ua'}</span>
-              <span className={header.arrow}></span>
+              <span 
+                className={header.arrow + ' icon-arrow-icon'}
+                style={{
+                  transform: toggleDropDown == false ? 'rotate(0deg)' : 'rotate(-180deg)',
+                  transition: 'all 0.2s ease'
+                }}
+              ></span>
 
               <div
                 style={{display: toggleDropDown == false ? 'none' : 'block'}} 
                 className={header.dropdownContent}
               >
-                <Link className={header.dropdownLink} key={locale} href="/" locale={locale == 'en' ? 'ua' : 'en'}>
+                <Link 
+                  className={header.dropdownLink} 
+                  key={locale} href="/" 
+                  locale={locale == 'en' ? 'ua' : 'en'}
+                >
                   {locale == 'en' ? 'ua' : 'en'}
                 </Link> 
               </div>

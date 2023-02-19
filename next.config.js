@@ -5,6 +5,9 @@ const nextConfig = {
     locales: ["en", "ua"],
     defaultLocale: "en",
   },
+  devIndicators: {
+    buildActivity: false
+  }
 }
 
 module.exports = nextConfig

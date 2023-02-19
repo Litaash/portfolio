@@ -9,15 +9,17 @@
   z-index: 0;
 }
 
-.logoLink {
+.logo {
   font-size: 2vw;
   font-family: var(--font-secondary);
   text-shadow: var(--text-shadow-md);
   text-transform: uppercase;
-  transition: color 0.2s ease;
+  transition: all 0.2s ease;
 
   &:hover {
     color: var(--hover-color);
+    text-shadow: none;
+    transform: translate(2px, 2px);
   }
 }
 
@@ -31,10 +33,12 @@
   font-family: var(--font-secondary);
   text-shadow: var(--text-shadow-md);
   padding: 0 20px;
-  transition: color 0.2s ease;
+  transition: all 0.2s ease;
 
   &:hover {
     color: var(--hover-color);
+    text-shadow: none;
+    transform: translate(2px, 2px);
   }
 }
 
@@ -47,6 +51,7 @@
   font-size: 2vw;
   font-family: var(--font-secondary);
   text-shadow: var(--text-shadow-md);
+  transition: all 0.2s ease;
 
   .arrow {
     margin-left: 10px;
@@ -54,10 +59,6 @@
 
   .dropdownLocale {
     transition: color 0.2s ease;
-
-    &:hover {
-      color: var(--hover-color);
-    }
   }
 
   .dropdownContent {
@@ -65,8 +66,9 @@
     position: absolute;
     width: auto;
     background-color: rgb(var(--primary-bg));
-    top: 100%;
     border: 1px solid rgb(var(--foreground-rgb));
+    top: 100%;
+    right: 0;
     font-size: 1.5vw;
     transition: all 0.2s ease;
     z-index: 1;
@@ -126,5 +128,14 @@
 
   .show {
     display: block;
+  }
+
+  &:hover {
+    text-shadow: none;
+    transform: translate(2px, 2px);
+    
+    .dropdownLocale, .arrow:before {
+      color: var(--hover-color);
+    }
   }
 }
