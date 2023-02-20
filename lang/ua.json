@@ -1,11 +1,14 @@
 {
   "page.home.logo": "Портфоліо",
-  "page.home.nav.work": "портфоліо",
+  "page.home.nav.main": "головна",
+  "page.home.nav.work": "проєкти",
   "page.home.nav.about": "про мене",
   "page.home.nav.contact": "зв'язок",
 
   "page.home.name": "Літаш Олександр",
   "page.home.position": "Вєб розробник",
   "page.home.description": "Шукаю вакансію на повний час ",
-  "page.home.location": "Чернігів, Україна"
+  "page.home.location": "Чернігів, Україна",
+
+  "page.projects.caption": "Проєкти"
 }

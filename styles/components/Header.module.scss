@@ -1,3 +1,12 @@
+.headerInitial {
+  position: initial;
+  width: 100%;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  z-index: 0;
+}
+
 .header {
   position: absolute;
   top: 0;
@@ -42,6 +51,10 @@
   }
 }
 
+// .activeLink {
+//   border-bottom: 3px solid rgb(var(--foreground-rgb));
+// }
+
 .dropdown {
   padding-left: 20px;
   cursor: pointer;
@@ -52,6 +65,7 @@
   font-family: var(--font-secondary);
   text-shadow: var(--text-shadow-md);
   transition: all 0.2s ease;
+  z-index: 2;
 
   .arrow {
     margin-left: 10px;
@@ -133,7 +147,7 @@
   &:hover {
     text-shadow: none;
     transform: translate(2px, 2px);
-    
+
     .dropdownLocale, .arrow:before {
       color: var(--hover-color);
     }

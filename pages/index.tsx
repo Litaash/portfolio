@@ -5,30 +5,28 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 import { FormattedMessage } from "react-intl";
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 import Tilt from 'react-parallax-tilt';
 import Typed from "typed.js";
 import { useEffect, useRef } from "react";
 
 export default function Home() {
+  const typedEl = useRef(null);
   const variants = {
     hidden: { opacity: 0, x: 0, y: 40 },
     enter: { opacity: 1, x: 0, y: 0 }
   }
 
-  const typedEl = useRef(null);
-
   useEffect(() => {
     const typed = new Typed(typedEl.current, {
-      strings: ['Webflow Developer', 'Front-End Developer'],
+      strings: ['Front-End Developer', 'Webflow Developer'],
       startDelay: 700,
       typeSpeed: 50,
       backSpeed: 50,
-      backDelay: 2000,
+      backDelay: 1000,
       loop: true
     });
 
-    // Destropying
     return () => {
       typed.destroy();
     };
@@ -49,7 +47,7 @@ export default function Home() {
         <div className={styles.wrapper}>
           <div className={styles.wrapperContent}>
             <div className={styles.wrapperContentLeft}>
-              <motion.text
+              <motion.div
                 variants={variants}
                 initial='hidden'
                 animate='enter'
@@ -58,9 +56,9 @@ export default function Home() {
                 <h1 className={styles.name}>
                   <FormattedMessage id="page.home.name" />
                 </h1>
-              </motion.text>
+              </motion.div>
 
-              <motion.text
+              <motion.div
                 variants={variants}
                 initial='hidden'
                 animate='enter'
@@ -69,9 +67,9 @@ export default function Home() {
                 <h2 className={styles.workPosition}>
                   <FormattedMessage id="page.home.position" />
                 </h2>
-              </motion.text>
+              </motion.div>
 
-              <motion.text
+              <motion.div
                 variants={variants}
                 initial='hidden'
                 animate='enter'
@@ -81,7 +79,7 @@ export default function Home() {
                   <FormattedMessage id="page.home.description" />
                   <span ref={typedEl}></span>
                 </p>
-              </motion.text>
+              </motion.div>
             </div>
             <div className={styles.wrapperContentRight}>
               <motion.div

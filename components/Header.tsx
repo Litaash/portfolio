@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import header from '../styles/components/Header.module.scss';
-import { FormattedMessage } from "react-intl";
-import { useRouter } from "next/router";
+import { FormattedMessage } from 'react-intl';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 import OutsideClickHandler from 'react-outside-click-handler';
 
@@ -18,9 +18,14 @@ export default function Header() {
     setToggleDropDown(!toggleDropDown);
   }
 
+  function handleLocaleChange() {
+    const newLocale = locale === 'en' ? 'ua' : 'en';
+    router.push(router.pathname, router.asPath, { locale: newLocale });
+  }
+
   return (
     <>
-      <header className={header.header}>
+      <header className={router.pathname == "/" ? header.header : header.headerInitial}>
         <div className={header.logo}>
           <Link className={header.logoLink} href="/">
             <FormattedMessage id="page.home.logo" />
@@ -28,18 +33,23 @@ export default function Header() {
         </div>
 
         <nav className={header.nav}>
-          <Link className={header.link} href="/work">
-            <span className={router.pathname == "/work" ? "active" : ""}>
+          <Link className={header.link} href="/">
+            <span className={router.pathname == "/" ? header.activeLink : ""}>
+              <FormattedMessage id="page.home.nav.main" />
+            </span>
+          </Link>
+          <Link className={header.link} href="/projects">
+            <span className={router.pathname == "/projects" ? header.activeLink : ""}>
               <FormattedMessage id="page.home.nav.work" />
             </span>
           </Link>
           <Link className={header.link} href="/about">
-            <span className={router.pathname == "/about" ? "active" : ""}>
+            <span className={router.pathname == "/about" ? header.activeLink : ""}>
               <FormattedMessage id="page.home.nav.about" />
             </span>
           </Link>
           <Link className={header.link} href="/contact">
-            <span className={router.pathname == "/contact" ? "active" : ""}>
+            <span className={router.pathname == "/contact" ? header.activeLink : ""}>
               <FormattedMessage id="page.home.nav.contact" />
             </span>
           </Link>
@@ -58,13 +68,13 @@ export default function Header() {
                 style={{display: toggleDropDown == false ? 'none' : 'block'}} 
                 className={header.dropdownContent}
               >
-                <Link 
+                <div
                   className={header.dropdownLink} 
-                  key={locale} href="/" 
-                  locale={locale == 'en' ? 'ua' : 'en'}
+                  key={locale} 
+                  onClick={handleLocaleChange}
                 >
-                  {locale == 'en' ? 'ua' : 'en'}
-                </Link> 
+                  {locale === 'en' ? 'ua' : 'en'}
+                </div> 
               </div>
             </div>
           </OutsideClickHandler>
