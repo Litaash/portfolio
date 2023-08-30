@@ -8,9 +8,9 @@ const nextConfig = {
   devIndicators: {
     buildActivity: false
   },
-  env: {
-    NEXT_PUBLIC_X_MASTER_KEY: '$2b$10$Yql0m.rEan4cq/wn0mMyI.wa96p6pWZS.ukwltF/2CmU.3A7K6AgO',
-  },
+  // env: {
+  //   NEXT_PUBLIC_X_MASTER_KEY: '$2b$10$Yql0m.rEan4cq/wn0mMyI.wa96p6pWZS.ukwltF/2CmU.3A7K6AgO',
+  // },
 }
 
 module.exports = nextConfig
