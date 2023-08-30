@@ -24,7 +24,7 @@ export default function Projects() {
     };
   }
 
-  const X_MASTER_KEY = process.env.NEXT_PUBLIC_X_MASTER_KEY;
+  //const X_MASTER_KEY = process.env.NEXT_PUBLIC_X_MASTER_KEY;
   const [data, setData] = useState<Data | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const textRef = useRef(null);
@@ -34,26 +34,26 @@ export default function Projects() {
   };
 
   useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await axios.get(
-          "https://api.jsonbin.io/v3/b/63f2a2d2ace6f33a22e1a270",
-          {
-            headers: {
-              "X-Master-Key": X_MASTER_KEY,
-              "Content-Type": "application/json",
-              versioning: false,
-            },
-          }
-        );
-        setData(response.data);
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setIsLoading(false);
-      }
-    }
-    fetchData();
+    // async function fetchData() {
+    //   try {
+    //     const response = await axios.get(
+    //       "https://api.jsonbin.io/v3/b/63f2a2d2ace6f33a22e1a270",
+    //       {
+    //         headers: {
+    //           //"X-Master-Key": X_MASTER_KEY,
+    //           "Content-Type": "application/json",
+    //           versioning: false,
+    //         },
+    //       }
+    //     );
+    //     setData(response.data);
+    //   } catch (error) {
+    //     console.log(error);
+    //   } finally {
+    //     setIsLoading(false);
+    //   }
+    // }
+    // fetchData();
 
     baffle(textRef.current)
       .start()
