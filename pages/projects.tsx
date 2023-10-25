@@ -15,14 +15,14 @@ export default function Projects() {
     async function fetchData() {
       try {
         const apiKey = process.env.API_KEY;
-        const response = await axios.get(
-          "https://api.jsonbin.io/v3/b/63f2a2d2ace6f33a22e1a270",
-          {
-            headers: {
-              "X-Master-Key": apiKey,
-            },
-          }
-        );
+        console.log(apiKey);
+        const response = await axios({
+          method: "get",
+          url: "https://api.jsonbin.io/v3/b/63f2a2d2ace6f33a22e1a270",
+          headers: {
+            'X-Access-Key': apiKey,
+          },
+        });
         setData(response.data);
       } catch (error) {
         console.error("Помилка запиту до API:", error);
