@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+
 const nextConfig = {
   reactStrictMode: true,
   i18n: {
@@ -8,6 +9,6 @@ const nextConfig = {
   devIndicators: {
     buildActivity: false
   }
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
