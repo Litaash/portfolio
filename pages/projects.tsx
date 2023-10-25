@@ -15,7 +15,6 @@ export default function Projects() {
     async function fetchData() {
       try {
         const apiKey = process.env.API_KEY;
-        console.log(apiKey);
         const response = await axios({
           method: "get",
           url: "https://api.jsonbin.io/v3/b/63f2a2d2ace6f33a22e1a270",
