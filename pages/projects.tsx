@@ -14,8 +14,7 @@ export default function Projects() {
   useEffect(() => {
     async function fetchData() {
       try {
-        console.log(process.env.NEXT_PUBLIC_API_KEY);
-        const apiKey = process.env.NEXT_PUBLIC_API_KEY;
+        const apiKey = process.env.API_KEY;
         const response = await axios.get(
           "https://api.jsonbin.io/v3/b/63f2a2d2ace6f33a22e1a270",
           {
