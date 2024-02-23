@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 import { IntlProvider } from "react-intl";
 
 import en from "../lang/en.json";
-import ua from "../lang/ua.json";
+import uk from "../lang/uk.json";
 
 type Messages = {
   [key: string]: Record<string, string>;
@@ -15,7 +15,7 @@ type Messages = {
 
 const messages: Messages = {
   en,
-  ua,
+  uk,
 };
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {

@@ -6,8 +6,9 @@ dotenv.config();
 const nextConfig = {
   reactStrictMode: true,
   i18n: {
-    locales: ["en", "ua"],
+    locales: ["en", "uk"],
     defaultLocale: "en",
+    localeDetection: false
   },
   devIndicators: {
     buildActivity: false,

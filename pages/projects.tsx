@@ -113,7 +113,7 @@ const Projects: React.FC = () => {
                     Array.isArray(data.record) &&
                     data.record.map((item, index) => (
                       <Link href={item.link} key={index}>
-                        <img src={item.poster} alt={index} />
+                        <img src={item.poster} alt={`Image ${index}`} />
                         <p>{item.title}</p>
                         <p>{item.tags}</p>
                         <p>

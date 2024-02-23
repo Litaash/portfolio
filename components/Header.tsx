@@ -19,7 +19,7 @@ export default function Header() {
   }
 
   function handleLocaleChange() {
-    const newLocale = locale === 'en' ? 'ua' : 'en';
+    const newLocale = locale === 'en' ? 'uk' : 'en';
     router.push(router.pathname, router.asPath, { locale: newLocale });
   }
 
@@ -55,7 +55,7 @@ export default function Header() {
           </Link>
           <OutsideClickHandler onOutsideClick={handleClickHideDropdown}>
             <div onClick={handleClickShowDropdown} className={header.dropdown}>
-              <span className={header.dropdownLocale}>{locale == 'en' ? 'en' : 'ua'}</span>
+              <span className={header.dropdownLocale}>{locale == 'en' ? 'en' : 'uk'}</span>
               <span 
                 className={header.arrow + ' icon-arrow-icon'}
                 style={{
@@ -73,7 +73,7 @@ export default function Header() {
                   key={locale} 
                   onClick={handleLocaleChange}
                 >
-                  {locale === 'en' ? 'ua' : 'en'}
+                  {locale === 'en' ? 'uk' : 'en'}
                 </div> 
               </div>
             </div>
