@@ -10,26 +10,33 @@ import Tilt from 'react-parallax-tilt';
 import Typed from "typed.js";
 import { useEffect, useRef } from "react";
 
-export default function Home() {
-  const typedEl = useRef(null);
-  const variants = {
+type VariantsType = {
+  hidden: { opacity: number; x: number; y: number };
+  enter: { opacity: number; x: number; y: number };
+};
+
+const Home: React.FC = () => {
+  const typedEl = useRef<HTMLSpanElement | null>(null);
+  const variants: VariantsType = {
     hidden: { opacity: 0, x: 0, y: 40 },
     enter: { opacity: 1, x: 0, y: 0 }
-  }
+  };
 
   useEffect(() => {
-    const typed = new Typed(typedEl.current, {
-      strings: ['Front-End Developer', 'Webflow Developer'],
-      startDelay: 700,
-      typeSpeed: 50,
-      backSpeed: 50,
-      backDelay: 1000,
-      loop: true
-    });
+    if (typedEl.current) {
+      const typed = new Typed(typedEl.current, {
+        strings: ['Front-End Developer', 'Webflow Developer'],
+        startDelay: 700,
+        typeSpeed: 50,
+        backSpeed: 50,
+        backDelay: 1000,
+        loop: true
+      });
 
-    return () => {
-      typed.destroy();
-    };
+      return () => {
+        typed.destroy();
+      };
+    }
   }, []);
 
   return (
@@ -111,4 +118,6 @@ export default function Home() {
       </main>
     </>
   );
-}
+};
+
+export default Home;

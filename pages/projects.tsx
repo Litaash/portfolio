@@ -11,19 +11,33 @@ import Image from "next/legacy/image";
 import Link from "next/link";
 import loader from "../public/assets/icons/loader.svg";
 
-export default function Projects() {
-  const [data, setData] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+type ProjectData = {
+  record: {
+    link: string;
+    poster: string;
+    title: string;
+    tags: string;
+  }[];
+};
+
+type VariantsType = {
+  hidden: { opacity: number; x: number; y: number };
+  enter: { opacity: number; x: number; y: number };
+};
+
+const Projects: React.FC = () => {
+  const [data, setData] = useState<ProjectData | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const apiKey = process.env.API_KEY;
-        const response = await axios.get(
+        const response = await axios.get<ProjectData>(
           "https://api.jsonbin.io/v3/b/63f2a2d2ace6f33a22e1a270",
           {
             headers: {
-              "X-Access-Key": apiKey,
+              //"X-Access-Key": process.env.API_KEY as string,
+              "X-Access-Key": "$2b$10$Fx8twk3cvIiEdihDfpilouu8pKZWx5qMHhvSYHItbYJQPgJ8yrwYW",
               "Content-Type": "application/json",
               versioning: false,
             },
@@ -39,7 +53,7 @@ export default function Projects() {
     fetchData();
   }, []);
 
-  const variants = {
+  const variants: VariantsType = {
     hidden: { opacity: 0, x: 0, y: 40 },
     enter: { opacity: 1, x: 0, y: 0 },
   };
@@ -129,3 +143,5 @@ export default function Projects() {
     </>
   );
 }
+
+export default Projects;

@@ -1,20 +1,24 @@
-import 'normalize.css/normalize.css'
-import '../styles/globals.scss'
-import '../styles/components/PixelBackground.scss'
-import Head from 'next/head'
-import type { AppProps } from 'next/app'
+import 'normalize.css/normalize.css';
+import '../styles/globals.scss';
+import '../styles/components/PixelBackground.scss';
+import Head from 'next/head';
+import { AppProps } from 'next/app';
 import { useRouter } from "next/router";
 import { IntlProvider } from "react-intl";
 
 import en from "../lang/en.json";
 import ua from "../lang/ua.json";
 
-const messages = {
-  en,
-  ua
+type Messages = {
+  [key: string]: Record<string, string>;
 };
 
-export default function App({ Component, pageProps }: AppProps) {
+const messages: Messages = {
+  en,
+  ua,
+};
+
+const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   const { locale } = useRouter();
   
   return (
@@ -30,9 +34,11 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       
-      <IntlProvider locale="en" messages={messages[locale]}>
+      <IntlProvider locale={locale || "en"} messages={messages[locale || "en"]}>
         <Component {...pageProps} />
       </IntlProvider>
     </>
-  )
-}
+  );
+};
+
+export default App;
