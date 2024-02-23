@@ -7,27 +7,35 @@ import Footer from "../components/Footer";
 
 import { FormattedMessage } from "react-intl";
 import { motion } from "framer-motion";
+import Image from "next/legacy/image";
+import Link from "next/link";
+import loader from "../public/assets/icons/loader.svg";
 
 export default function Projects() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
       try {
         const apiKey = process.env.API_KEY;
-        const response = await axios({
-          method: "get",
-          url: "https://api.jsonbin.io/v3/b/63f2a2d2ace6f33a22e1a270",
-          headers: {
-            'X-Access-Key': apiKey,
-          },
-        });
+        const response = await axios.get(
+          "https://api.jsonbin.io/v3/b/63f2a2d2ace6f33a22e1a270",
+          {
+            headers: {
+              "X-Access-Key": apiKey,
+              "Content-Type": "application/json",
+              versioning: false,
+            },
+          }
+        );
         setData(response.data);
       } catch (error) {
-        console.error("Помилка запиту до API:", error);
+        console.log(error);
+      } finally {
+        setIsLoading(false);
       }
     }
-
     fetchData();
   }, []);
 
@@ -70,17 +78,53 @@ export default function Projects() {
             </div>
           </motion.div>
 
-          <div>
-            {data.map((item) => (
-              <div key={item.id}>
-                <p>Name: {item.name}</p>
-                <p>Username: {item.username}</p>
-                <p>Email: {item.email}</p>
-              </div>
-            ))}
-          </div>
+          <motion.div
+            initial={{ y: 50 }}
+            animate={{ y: 0 }}
+            transition={{
+              duration: 0.7,
+              type: "tween",
+              ease: "easeOut",
+              delay: 0.2,
+            }}
+          >
+            <div className={styles.wrapper}>
+              {isLoading ? (
+                <div className={styles.loader}>
+                  <Image src={loader} />
+                </div>
+              ) : (
+                <div className={styles.projectsList}>
+                  {data &&
+                    Array.isArray(data.record) &&
+                    data.record.map((item, index) => (
+                      <Link href={item.link} key={index}>
+                        <img src={item.poster} alt={index} />
+                        <p>{item.title}</p>
+                        <p>{item.tags}</p>
+                        <p>
+                          <FormattedMessage id="page.projects.show" />
+                        </p>
+                      </Link>
+                    ))}
+                </div>
+              )}
+            </div>
+          </motion.div>
         </div>
-        <Footer />
+        <motion.footer
+          variants={variants}
+          initial="hidden"
+          animate="enter"
+          transition={{
+            type: "tween",
+            ease: "easeOut",
+            duration: 0.6,
+            delay: 0.2,
+          }}
+        >
+          <Footer />
+        </motion.footer>
       </div>
     </>
   );
