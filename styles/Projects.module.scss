@@ -35,7 +35,7 @@
 
 .wrapper {
   display: flex;
-  height: calc(100vh - 300px);
+  min-height: calc(100vh - 300px);
 }
 
 .loader {

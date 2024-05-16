@@ -7,7 +7,7 @@ import Footer from "../components/Footer";
 
 import { FormattedMessage } from "react-intl";
 import { motion } from "framer-motion";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from "next/link";
 import loader from "../public/assets/icons/loader.svg";
 
@@ -37,7 +37,8 @@ const Projects: React.FC = () => {
           {
             headers: {
               //"X-Access-Key": process.env.API_KEY as string,
-              "X-Access-Key": "$2b$10$Fx8twk3cvIiEdihDfpilouu8pKZWx5qMHhvSYHItbYJQPgJ8yrwYW",
+              "X-Access-Key":
+                "$2b$10$Fx8twk3cvIiEdihDfpilouu8pKZWx5qMHhvSYHItbYJQPgJ8yrwYW",
               "Content-Type": "application/json",
               versioning: false,
             },
@@ -105,7 +106,7 @@ const Projects: React.FC = () => {
             <div className={styles.wrapper}>
               {isLoading ? (
                 <div className={styles.loader}>
-                  <Image src={loader} />
+                  <Image alt="loader" src={loader} />
                 </div>
               ) : (
                 <div className={styles.projectsList}>
@@ -142,6 +143,6 @@ const Projects: React.FC = () => {
       </div>
     </>
   );
-}
+};
 
 export default Projects;

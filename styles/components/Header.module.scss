@@ -22,7 +22,7 @@
   font-size: 2vw;
   font-family: var(--font-secondary);
   text-shadow: var(--text-shadow-md);
-  text-transform: uppercase;
+  //text-transform: uppercase;
   transition: all 0.2s ease;
 
   &:hover {
@@ -50,10 +50,6 @@
     transform: translate(2px, 2px);
   }
 }
-
-// .activeLink {
-//   border-bottom: 3px solid rgb(var(--foreground-rgb));
-// }
 
 .dropdown {
   padding-left: 20px;
@@ -92,7 +88,7 @@
       text-shadow: none;
       padding: 3px 10px;
     }
-    
+
     &:before {
       content: "";
       position: absolute;
@@ -148,7 +144,8 @@
     text-shadow: none;
     transform: translate(2px, 2px);
 
-    .dropdownLocale, .arrow:before {
+    .dropdownLocale,
+    .arrow:before {
       color: var(--hover-color);
     }
   }
