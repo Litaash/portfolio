@@ -1,8 +1,8 @@
-import 'normalize.css/normalize.css';
-import '../styles/globals.scss';
-import '../styles/components/PixelBackground.scss';
-import Head from 'next/head';
-import { AppProps } from 'next/app';
+import "normalize.css/normalize.css";
+import "../styles/globals.scss";
+import "../styles/components/PixelBackground.scss";
+import Head from "next/head";
+import { AppProps } from "next/app";
 import { useRouter } from "next/router";
 import { IntlProvider } from "react-intl";
 
@@ -20,7 +20,7 @@ const messages: Messages = {
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   const { locale } = useRouter();
-  
+
   return (
     <>
       <Head>
@@ -33,7 +33,7 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
         <link rel="apple-touch-icon" sizes="152x152" href="/webclip.png"></link>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      
+
       <IntlProvider locale={locale || "en"} messages={messages[locale || "en"]}>
         <Component {...pageProps} />
       </IntlProvider>
