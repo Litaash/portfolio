@@ -7,9 +7,7 @@ import Footer from "../components/Footer";
 
 import { FormattedMessage } from "react-intl";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
-import loader from "../public/assets/icons/loader.svg";
 
 type ProjectData = {
   record: {
@@ -48,7 +46,7 @@ const Projects: React.FC = () => {
       } catch (error) {
         console.log(error);
       } finally {
-        setIsLoading(false);
+        setIsLoading(true);
       }
     }
     fetchData();
@@ -106,7 +104,7 @@ const Projects: React.FC = () => {
             <div className={styles.wrapper}>
               {isLoading ? (
                 <div className={styles.loader}>
-                  <Image alt="loader" src={loader} />
+                  <div className={styles.progress}></div>
                 </div>
               ) : (
                 <div className={styles.projectsList}>
