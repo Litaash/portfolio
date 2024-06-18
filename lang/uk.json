@@ -1,13 +1,11 @@
 {
-  "page.home.logo": "Портфоліо",
-  "page.home.nav.main": "головна",
   "page.home.nav.work": "проєкти",
   "page.home.nav.about": "про мене",
   "page.home.nav.contact": "зв'язок",
 
   "page.home.name": "Літаш Олександр",
-  "page.home.position": "Веб Розробник",
-  "page.home.description": "Шукаю вакансію на повний час ",
+  "page.home.position": "React Розробник",
+  "page.home.description": "працюю в Develux ",
   "page.home.location": "Чернігів, Україна",
 
   "page.projects.caption": "Проєкти",

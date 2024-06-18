@@ -1,9 +1,5 @@
 import styles from "../styles/Main.module.scss";
-
 import PixelBackground from "../components/PixelBackground";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-
 import { FormattedMessage } from "react-intl";
 import { motion } from "framer-motion";
 import Tilt from "react-parallax-tilt";
@@ -25,11 +21,7 @@ const Home: React.FC = () => {
   useEffect(() => {
     if (typedEl.current) {
       const typed = new Typed(typedEl.current, {
-        strings: [
-          "Front-End Developer",
-          "React Developer",
-          "Webflow Developer",
-        ],
+        strings: ["Front-End Developer", "React Developer"],
         startDelay: 700,
         typeSpeed: 50,
         backSpeed: 50,
@@ -45,111 +37,85 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <main className={styles.main}>
-        <motion.header
-          variants={variants}
-          initial="hidden"
-          animate="enter"
-          transition={{
-            type: "tween",
-            ease: "easeOut",
-            duration: 0.6,
-            delay: 0.6,
-          }}
-        >
-          <Header />
-        </motion.header>
-        <PixelBackground />
-        <div className={styles.wrapper}>
-          <div className={styles.wrapperContent}>
-            <div className={styles.wrapperContentLeft}>
-              <motion.div
-                variants={variants}
-                initial="hidden"
-                animate="enter"
-                transition={{
-                  type: "tween",
-                  ease: "easeOut",
-                  duration: 0.6,
-                  delay: 0.5,
-                }}
-              >
-                <h1 className={styles.name}>
-                  <FormattedMessage id="page.home.name" />
-                </h1>
-              </motion.div>
+      <PixelBackground />
+      <div className={styles.wrapper}>
+        <div className={styles.wrapperContent}>
+          <div className={styles.wrapperContentLeft}>
+            <motion.div
+              variants={variants}
+              initial="hidden"
+              animate="enter"
+              transition={{
+                type: "tween",
+                ease: "easeOut",
+                duration: 0.6,
+                delay: 0.5,
+              }}
+            >
+              <h1 className={styles.name}>
+                <FormattedMessage id="page.home.name" />
+              </h1>
+            </motion.div>
 
-              <motion.div
-                variants={variants}
-                initial="hidden"
-                animate="enter"
-                transition={{
-                  type: "tween",
-                  ease: "easeOut",
-                  duration: 0.6,
-                  delay: 0.4,
-                }}
-              >
-                <h2 className={styles.workPosition}>
-                  <FormattedMessage id="page.home.position" />
-                </h2>
-              </motion.div>
+            <motion.div
+              variants={variants}
+              initial="hidden"
+              animate="enter"
+              transition={{
+                type: "tween",
+                ease: "easeOut",
+                duration: 0.6,
+                delay: 0.4,
+              }}
+            >
+              <h2 className={styles.workPosition}>
+                <FormattedMessage id="page.home.position" />
+              </h2>
+            </motion.div>
 
-              <motion.div
-                variants={variants}
-                initial="hidden"
-                animate="enter"
-                transition={{
-                  type: "tween",
-                  ease: "easeOut",
-                  duration: 0.6,
-                  delay: 0.3,
-                }}
-              >
-                <p className={styles.typingText}>
+            <motion.div
+              variants={variants}
+              initial="hidden"
+              animate="enter"
+              transition={{
+                type: "tween",
+                ease: "easeOut",
+                duration: 0.6,
+                delay: 0.3,
+              }}
+            >
+              <div className={styles.typingText}>
+                <p>
                   <FormattedMessage id="page.home.description" />
-                  <span ref={typedEl}></span>
                 </p>
-              </motion.div>
-            </div>
-            <div className={styles.wrapperContentRight}>
-              <motion.div
-                variants={variants}
-                initial="hidden"
-                animate="enter"
-                transition={{
-                  type: "tween",
-                  ease: "easeOut",
-                  duration: 0.6,
-                  delay: 0.2,
-                }}
+                <span ref={typedEl}></span>
+              </div>
+            </motion.div>
+          </div>
+          <div className={styles.wrapperContentRight}>
+            <motion.div
+              variants={variants}
+              initial="hidden"
+              animate="enter"
+              transition={{
+                type: "tween",
+                ease: "easeOut",
+                duration: 0.6,
+                delay: 0.2,
+              }}
+            >
+              <Tilt
+                perspective={500}
+                glareEnable={false}
+                scale={1}
+                trackOnWindow={true}
               >
-                <Tilt
-                  perspective={500}
-                  glareEnable={false}
-                  scale={1}
-                  trackOnWindow={true}
-                >
-                  <div className={styles.contentImage}></div>
-                </Tilt>
-              </motion.div>
-            </div>
+                <div className={styles.contentImage}></div>
+              </Tilt>
+            </motion.div>
           </div>
         </div>
-        <motion.footer
-          variants={variants}
-          initial="hidden"
-          animate="enter"
-          transition={{
-            type: "tween",
-            ease: "easeOut",
-            duration: 0.6,
-            delay: 0.2,
-          }}
-        >
-          <Footer />
-        </motion.footer>
-      </main>
+      </div>
     </>
   );
 };

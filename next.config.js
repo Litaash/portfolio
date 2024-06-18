@@ -8,13 +8,13 @@ const nextConfig = {
   i18n: {
     locales: ["en", "uk"],
     defaultLocale: "en",
-    localeDetection: false
+    localeDetection: false,
   },
   devIndicators: {
     buildActivity: false,
   },
   env: {
-    API_KEY: process.env.API_KEY
+    API_KEY: process.env.API_KEY,
   },
 };
 

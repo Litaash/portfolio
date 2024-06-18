@@ -5,12 +5,20 @@ import Head from "next/head";
 import { AppProps } from "next/app";
 import { useRouter } from "next/router";
 import { IntlProvider } from "react-intl";
+import { motion } from "framer-motion";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 import en from "../lang/en.json";
 import uk from "../lang/uk.json";
 
 type Messages = {
   [key: string]: Record<string, string>;
+};
+
+type VariantsType = {
+  hidden: { opacity: number; x: number; y: number };
+  enter: { opacity: number; x: number; y: number };
 };
 
 const messages: Messages = {
@@ -20,6 +28,11 @@ const messages: Messages = {
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   const { locale } = useRouter();
+
+  const variants: VariantsType = {
+    hidden: { opacity: 0, x: 0, y: 40 },
+    enter: { opacity: 1, x: 0, y: 0 },
+  };
 
   return (
     <>
@@ -35,7 +48,35 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
       </Head>
 
       <IntlProvider locale={locale || "en"} messages={messages[locale || "en"]}>
-        <Component {...pageProps} />
+        <motion.header
+          variants={variants}
+          initial="hidden"
+          animate="enter"
+          transition={{
+            type: "tween",
+            ease: "easeOut",
+            duration: 0.6,
+            delay: 0.6,
+          }}
+        >
+          <Header />
+        </motion.header>
+        <main>
+          <Component {...pageProps} />
+        </main>
+        <motion.footer
+          variants={variants}
+          initial="hidden"
+          animate="enter"
+          transition={{
+            type: "tween",
+            ease: "easeOut",
+            duration: 0.6,
+            delay: 0.2,
+          }}
+        >
+          <Footer />
+        </motion.footer>
       </IntlProvider>
     </>
   );

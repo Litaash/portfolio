@@ -1,13 +1,11 @@
 {
-  "page.home.logo": "Portfolio",
-  "page.home.nav.main": "home",
   "page.home.nav.work": "projects",
   "page.home.nav.about": "about",
   "page.home.nav.contact": "contact",
   
   "page.home.name": "Litash Oleksandr",
-  "page.home.position": "Web Developer",
-  "page.home.description": "Currently looking for a full-time position as a ",
+  "page.home.position": "React Developer",
+  "page.home.description": "full time in Develux ",
   "page.home.location": "Chernihiv, Ukraine",
 
   "page.projects.caption": "Projects",

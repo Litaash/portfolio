@@ -35,12 +35,7 @@ const Header: React.FC = () => {
         </div>
 
         <nav className={header.nav}>
-          <Link className={header.link} href="/">
-            <span className={router.pathname === "/" ? header.activeLink : ""}>
-              <FormattedMessage id="page.home.nav.main" />
-            </span>
-          </Link>
-          <Link className={header.link} href="/projects">
+          {/* <Link className={header.link} href="/projects">
             <span
               className={
                 router.pathname === "/projects" ? header.activeLink : ""
@@ -48,7 +43,7 @@ const Header: React.FC = () => {
             >
               <FormattedMessage id="page.home.nav.work" />
             </span>
-          </Link>
+          </Link> */}
           <Link className={header.link} href="/about">
             <span
               className={router.pathname === "/about" ? header.activeLink : ""}
